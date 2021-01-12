@@ -1,10 +1,15 @@
+<div>
+  <ul>
+    <li>
+      <a href='#'>todos</a>
+    </li>
+    <li>
+      <a routerLink="/profile">profile</a>
+    </li>
+  </ul>
+</div>
 <div class="content">
-
-  <app-hello-world [label]="label" #helloWorldComponent></app-hello-world>
-
-  <h2>Label in app.component.ts -> {{label.name}}</h2>
-
-  <button (click)="displayLabel()">Change label</button>
+  <router-outlet></router-outlet>
 </div>
 
-<router-outlet></router-outlet>
+

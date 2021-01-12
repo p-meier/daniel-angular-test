@@ -3,18 +3,25 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HelloWorldComponent } from './hello-world/hello-world.component';
-import {FormsModule} from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { TodoComponent } from './todo/todo.component';
+import { DetailsComponent } from './todo/details/details.component';
+import { TabViewModule } from "primeng/tabview";
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HelloWorldComponent
+    TodoComponent,
+    DetailsComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
+    TabViewModule
   ],
   providers: [],
   bootstrap: [AppComponent]

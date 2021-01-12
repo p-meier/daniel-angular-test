@@ -1,0 +1,20 @@
+<div class="center">
+  <div>
+    <input [(ngModel)]="todo.label" (keydown.enter)="add()" placeholder="What's todo?">
+  </div>
+  <div>
+    <ul>
+      <li *ngFor="let element of todos; index as i">
+        <div>
+          <!--probably not the most elegant way of doing it, tried with 2 way binding failed miserably-->
+          <input type="checkbox" (change)="complete(i)">
+          <span>{{element?.label}}</span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div>
+    <span>Count: {{todos?.length}} </span>
+    <button *ngIf="hasCompleted" (click)="remove()">Remove completed</button>
+  </div>
+</div>
