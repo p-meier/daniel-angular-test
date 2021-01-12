@@ -4,17 +4,16 @@
   </div>
   <div>
     <ul>
-      <li *ngFor="let element of todos; index as i">
+      <li *ngFor="let todo of todos">
         <div>
-          <!--probably not the most elegant way of doing it, tried with 2 way binding failed miserably-->
-          <input type="checkbox" (change)="complete(i)">
-          <span>{{element?.label}}</span>
+          <input type="checkbox" (change)="complete(todo)">
+          <span>{{todo?.label}} - <button (click)="deleteSingleTodo(todo)">Delete</button></span>
         </div>
       </li>
     </ul>
   </div>
   <div>
     <span>Count: {{todos?.length}} </span>
-    <button *ngIf="hasCompleted" (click)="remove()">Remove completed</button>
+    <button *ngIf="hasCompletedTodos()" (click)="remove()">Remove completed</button>
   </div>
 </div>

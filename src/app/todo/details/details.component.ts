@@ -10,8 +10,6 @@ export class DetailsComponent implements OnInit {
   todo: any = {};
   todos: any[] = [];
 
-  hasCompleted: boolean = false;
-
   constructor() { }
 
   ngOnInit(): void { }
@@ -19,13 +17,11 @@ export class DetailsComponent implements OnInit {
   add(): void {
     if (this.todo.label) {
 
-      const todo = {
-        label: this.todo.label.trim(),
-        done: false
-      }
+      this.todo.label = this.todo.label.trim();
+      this.todo.done = false;
+      this.todo.id = Math.random().toString(36).slice(2);
 
-      // why does it not work with this.todo? why do i need to create a separate todo object?
-      this.todos.push(todo);
+      this.todos.push(this.todo);
       this.todo = {};
 
     }
@@ -35,18 +31,22 @@ export class DetailsComponent implements OnInit {
     this.todos = this.todos.filter(el => !el.done);
   }
 
-  complete(index: any): void {
-    this.todos.forEach(el => {
-      if (this.todos.indexOf(el) === index) {
-        el.done = !el.done;
-      }
-    });
+  deleteSingleTodo(todo: any): void {
+    this.todos = this.todos.filter(item => item.id !== todo.id);
+  }
 
-    this.hasCompleted = this.todos.some(el => el.done);
+  complete(todo: any): void {
+    if (todo) {
+      todo.done = !todo.done;
+    }
   }
 
   log(text: string): void {
     console.log(text)
+  }
+
+  hasCompletedTodos(): boolean {
+    return this.todos.some(el => el.done);
   }
 
 }
