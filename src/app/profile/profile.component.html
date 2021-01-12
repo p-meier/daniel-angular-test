@@ -1,5 +1,13 @@
 <div class="center">
+
+  <div>
+    <button (click)="randomUser()">Get random User</button>
+  </div>
+
   <form [formGroup]="profileForm">
+
+    <label for="email">EMail: </label>
+    <input formControlName="email" id="email">
 
     <label for="username">Username: </label>
     <input formControlName="username" id="username">
@@ -10,7 +18,7 @@
     <label for="lastname">Last Name: </label>
     <input formControlName="lastname" id="lastname">
 
-    <div [formGroupName]="address">
+    <div formGroupName="address">
 
       <label for="street">Street: </label>
       <input formControlName="street" id="street">
@@ -21,6 +29,15 @@
       <label for="city">City: </label>
       <input formControlName="city" id="city">
 
+    </div>
+
+    <p>
+      Form Status: {{profileForm.status}}
+    </p>
+
+    <div>
+      <button id="submit" (click)="update()">Submit</button>
+      <p *ngIf="this.result">{{this.result}}</p>
     </div>
 
   </form>

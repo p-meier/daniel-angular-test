@@ -8,6 +8,7 @@ import { TodoComponent } from './todo/todo.component';
 import { DetailsComponent } from './todo/details/details.component';
 import { TabViewModule } from "primeng/tabview";
 import { ProfileComponent } from './profile/profile.component';
+import { HttpClientModule } from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { ProfileComponent } from './profile/profile.component';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    TabViewModule
+    TabViewModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
