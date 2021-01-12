@@ -35,9 +35,8 @@
       Form Status: {{profileForm.status}}
     </p>
 
-    <div>
-      <button id="submit" (click)="update()">Submit</button>
-      <p *ngIf="this.result">{{this.result}}</p>
+    <div *ngIf="profileForm?.value && profileForm?.valid">
+      <p>{{profileForm?.value | json}}</p>
     </div>
 
   </form>
